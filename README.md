@@ -88,7 +88,7 @@ These additions improve interpretability and make predictions easier to understa
 
 These challenges were addressed through emotion smoothing, threaded inference, and independent per-face emotion tracking.
 
-##What I Learned and Found Challenging
+## What I Learned and Found Challenging
 
 1. Creating the application itself was not an issue, but making changes to improve the detection of specific emotions was challenging.
 
