@@ -88,13 +88,17 @@ These additions improve interpretability and make predictions easier to understa
 
 These challenges were addressed through emotion smoothing, threaded inference, and independent per-face emotion tracking.
 
-## Future Improvements
+**What I Learned and Found Challenging**
 
-* Replace Haar Cascade with MediaPipe face detection
-* Add persistent face tracking across frames
-* Deploy as a web application
-* Integrate more advanced emotion recognition models
-* Add historical emotion analytics and session summaries
+1. Creating the application itself was not an issue, but making changes to improve the detection of specific emotions was challenging.
+
+2. One of the main challenges was changing the sensitivity of the model to make it more accustomed to my facial expressions. Handling multiple faces simultaneously was also challenging, as each face needed to       maintain its own emotion history and prediction state.
+
+3. I also observed that DeepFace has a bias toward predicting neutral emotions. To address this, I modified the code so that it could better recognize other emotions instead of defaulting to neutral too often.
+
+4. Another challenge was tuning the constraints and parameters. I had to adjust them multiple times before reaching a configuration that produced satisfactory results.
+
+5. Overall, it was an interesting learning experience. It helped me understand emotion recognition in practice and gave me a better understanding of face and object detection concepts.
 
 ## License
 
