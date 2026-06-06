@@ -1,7 +1,8 @@
 # Emotion-Mirror
-Emotion Mirror is a real-time emotion recognition application that uses OpenCV and DeepFace to detect faces from a webcam feed and predict emotions such as happy, sad, angry, fear, surprise, and neutral. It features confidence scores, emotion smoothing, multi-face support, and live visualization.
 
-The project emphasizes real-time performance, prediction stability, and user experience through emotion smoothing, asynchronous processing, and confidence visualization.
+Emotion Mirror is a real-time emotion recognition application built using Python, OpenCV, and DeepFace. The application captures live webcam footage, detects faces in real time, and predicts emotions such as happy, sad, angry, fear, surprise, and neutral.
+
+The project focuses on delivering stable real-time emotion recognition through asynchronous processing, prediction smoothing, confidence visualization, and independent multi-face emotion tracking.
 
 ## Features
 
@@ -16,7 +17,8 @@ The project emphasizes real-time performance, prediction stability, and user exp
   * Fear
   * Surprise
   * Neutral
-* Multiple face support
+* Simultaneous multi-face emotion recognition
+* Independent emotion history and smoothing for each detected face
 * Confidence score visualization
 * Emotion probability bars
 * Emotion smoothing for stable predictions
@@ -35,12 +37,13 @@ The project emphasizes real-time performance, prediction stability, and user exp
 ## System Workflow
 
 1. Capture live video frames from the webcam.
-2. Detect faces using OpenCV's Haar Cascade classifier.
-3. Extract the detected face region.
+2. Detect one or more faces using OpenCV's Haar Cascade classifier.
+3. Extract each detected face region.
 4. Perform emotion analysis using DeepFace.
-5. Smooth predictions across multiple frames to reduce fluctuations.
-6. Apply custom post-processing logic to improve emotion sensitivity.
-7. Display the dominant emotion, confidence score, and emotion distribution in real time.
+5. Maintain independent emotion buffers for each detected face.
+6. Smooth predictions across multiple frames to reduce fluctuations.
+7. Apply custom post-processing logic to improve emotion sensitivity.
+8. Display the dominant emotion, confidence score, and emotion distribution in real time.
 
 ## Key Enhancements
 
@@ -51,6 +54,10 @@ Emotion predictions can fluctuate significantly between consecutive frames. A ro
 ### Asynchronous Processing
 
 DeepFace inference is executed in a separate thread, preventing the webcam feed from freezing while emotion analysis is performed.
+
+### Independent Multi-Face Tracking
+
+Each detected face maintains its own emotion history, confidence tracking, and smoothing buffer. This prevents predictions from one person affecting another person's emotion analysis.
 
 ### Improved Emotion Sensitivity
 
@@ -71,45 +78,28 @@ The application provides:
 
 These additions improve interpretability and make predictions easier to understand.
 
-## Installation
-
-Clone the repository:
-
-```bash
-git clone <repository-url>
-cd Emotion-Mirror
-```
-
-Install dependencies:
-
-```bash
-pip install -r requirements.txt
-```
-
-Run the application:
-
-```bash
-python app.py
-```
-
 ## Challenges Encountered
 
 * Managing fluctuating emotion predictions across frames
 * Maintaining smooth real-time performance during inference
 * Handling the dominance of neutral predictions in pre-trained models
+* Supporting multiple faces without mixing prediction histories
 * Improving responsiveness without blocking the webcam feed
 
-These challenges were addressed through emotion smoothing, threaded inference, and custom post-processing techniques.
+These challenges were addressed through emotion smoothing, threaded inference, and independent per-face emotion tracking.
 
 ## Future Improvements
 
 * Replace Haar Cascade with MediaPipe face detection
-* Add face tracking for improved multi-person support
+* Add persistent face tracking across frames
 * Deploy as a web application
 * Integrate more advanced emotion recognition models
 * Add historical emotion analytics and session summaries
 
 ## License
 
-This project is licensed under the MIT License. See the LICENSE file for details.
-son obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software.
+This project is released for educational and demonstration purposes as part of the Bipolar Factory Emotion Mirror assignment.
+
+Copyright (c) 2026 Divyaansh Vats
+
+Permission is granted to use, modify, and distribute this project with appropriate attribution.
